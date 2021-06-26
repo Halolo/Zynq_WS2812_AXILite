@@ -5,6 +5,15 @@
 	(
 		// Users to add parameters here
 
+		parameter integer NB_LEDS = 120,
+
+		// ns
+		parameter integer T0H = 400,
+		parameter integer T1H = 800,
+		parameter integer T0L = 850,
+		parameter integer T1L = 450,
+		parameter integer RST = 100000,
+
 		// User parameters ends
 		// Do not modify the parameters beyond this line
 
@@ -44,7 +53,13 @@
 		input wire  s00_axi_rready
 	);
 // Instantiation of Axi Bus Interface S00_AXI
-	AXIWS2812Strip_v1_0_S00_AXI # ( 
+	AXIWS2812Strip_v1_0_S00_AXI # (
+		.NB_LEDS(NB_LEDS),
+		.T0H(T0H),
+		.T1H(T1H),
+		.T0L(T0L),
+		.T1L(T1L),
+		.RST(RST),
 		.C_S_AXI_DATA_WIDTH(C_S00_AXI_DATA_WIDTH),
 		.C_S_AXI_ADDR_WIDTH(C_S00_AXI_ADDR_WIDTH)
 	) AXIWS2812Strip_v1_0_S00_AXI_inst (
